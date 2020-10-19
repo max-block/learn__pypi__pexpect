@@ -10,7 +10,11 @@ host = os.getenv("HOST")
 
 command = "ls -l /"
 
-child = pexpect.spawn(f"ssh -i {ssh_key} {host} '{command}'", encoding="utf-8", timeout=300)
+child = pexpect.spawn(
+    f"ssh -o 'StrictHostKeyChecking=no' -i {ssh_key} {host} '{command}'",
+    encoding="utf-8",
+    timeout=300,
+)
 out = child.read()
 child.expect(pexpect.EOF)
 
