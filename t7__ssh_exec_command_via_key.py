@@ -16,6 +16,7 @@ child = pexpect.spawn(
     timeout=300,
 )
 out = child.read()
-# child.expect(pexpect.EOF)
+# There are some problems with it inside of docker :(
+# Don't use pexpect with docker, use plain subprocess
 
 print(out)
