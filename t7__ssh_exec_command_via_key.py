@@ -16,6 +16,6 @@ child = pexpect.spawn(
     timeout=300,
 )
 out = child.read()
-child.expect(pexpect.EOF)
+# child.expect(pexpect.EOF)
 
 print(out)
